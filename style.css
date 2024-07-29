@@ -65,7 +65,12 @@ body {
         left: 100%;
     }
 }
-
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+        margin: 10px;
+    }
+}
 /* Main Content Styles */
 .content {
     padding: 20px;
