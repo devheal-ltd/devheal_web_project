@@ -64,7 +64,6 @@ body {
         background-position: 100% 50%;
     }
 }
-<<<<<<< HEAD
 
 @keyframes fadeIn {
     0%, 100% {
@@ -92,18 +91,6 @@ body {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     width: calc(30% - 40px);
     min-width: 280px;
-=======
-@media screen and (max-width: 480px) {
-    body {
-        font-size: 12px;
-        margin: 10px;
-    }
-}
-/* Main Content Styles */
-.content {
-    padding: 20px;
-    text-align: center;
->>>>>>> db426444a3e739863ec2fcb4c0dee84ab134262b
     margin: 20px;
     padding: 25px 15px;
     text-align: center;
@@ -212,14 +199,6 @@ body {
 @media (max-width: 480px) {
     .service-box {
         width: calc(90% - 40px);
-    }
-}
-
-/* Styles for mobile devices */
-@media (max-width: 480px) {
-    .welcome-banner {
-        width: 100%;
-        padding: 10px;
     }
 }
 
