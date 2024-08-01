@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevHeal offers a comprehensive range of web development services to meet your business needs.">
+    <meta name="keywords" content="Web Development, Frontend Development, Backend Development, DevHeal, Services">
+    <meta name="author" content="DevHeal">
+    <meta property="og:title" content="DevHeal | Web Development Services">
+    <meta property="og:description" content="Explore our web development services, including Frontend, Backend, CMS, and more.">
+    <meta property="og:image" content="https://www.devheal.com/images/web-development-thumbnail.jpg">
+    <meta property="og:url" content="https://www.devheal.com/web-development">
+    <title>DevHeal | Web Development Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-box {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-title {
+            background: linear-gradient(to right, #4caf50, #388e3c);
+            color: white;
+            padding: 15px 0;
+            font-size: 1.5em;
+            position: relative;
+        }
+
+        .service-title:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #ffffff;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover .service-title:after {
+            transform: scaleX(1);
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content p {
+            font-size: 1em;
+            margin: 10px 0;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #ff5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e64a19;
+            transform: translateY(-3px);
+        }
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #333, #4A4A4A);
+            color: white;
+            padding: 30px 10px;
+            width: 100%;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center; /* Center the content */
+            align-items: center;
+            flex-direction: column; /* Column layout for better arrangement */
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+            font-size: 1em;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .footer-content p a {
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content p a:hover {
+            color: #c9ffc9;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0; /* Added margin for spacing */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons li {
+            margin: 0 10px;
+        }
+
+        .social-icons li a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons li a:hover {
+            background-color: #c9ffc9;
+            transform: scale(1.1);
+            color: #333;
+        }
+
+        .footer-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .footer-content {
+                padding: 10px;
+            }
+
+            .footer-content p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Web Development Services</h1>
+        <p>Explore our comprehensive range of web development services designed to cater to your business needs.</p>
+    </header>
+
+    <section class="services-container">
+        <div class="service-box">
+            <div class="service-title">Frontend Development</div>
+            <div class="service-content">
+                <p>Create stunning and responsive designs with our expert frontend development services.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-title">Backend Development</div>
+            <div class="service-content">
+                <p>Build robust and scalable server-side applications with our backend development solutions.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-title">Full Stack Development</div>
+            <div class="service-content">
+                <p>End-to-end development solutions with expertise in both frontend and backend technologies.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-title">E-commerce Development</div>
+            <div class="service-content">
+                <p>Design and develop user-friendly e-commerce platforms to enhance your online sales.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-title">CMS Development</div>
+            <div class="service-content">
+                <p>Custom Content Management Systems to simplify your content creation and management process.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-title">API Development</div>
+            <div class="service-content">
+                <p>Develop powerful APIs for seamless integration and connectivity across platforms.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-title">Web Application Development</div>
+            <div class="service-content">
+                <p>Build custom web applications tailored to your specific business requirements.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-title">Responsive Web Design</div>
+            <div class="service-content">
+                <p>Create mobile-friendly websites that offer seamless user experiences across devices.</p>
+                <a href="#" class="cta-button">Explore</a>
+            </div>
+        </div>
+    </section>
+
+ <!-- Footer Section -->
+ <div class="footer">
+    <!-- Social Media Icons -->
+    <ul class="social-icons">
+        <li><a href="tel:+8801615478445" aria-label="Call"><i class="fas fa-phone"></i></a></li>
+        <li><a href="https://wa.me/8801615478445" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+        <li><a href="https://m.me/yourusername" target="_blank" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a></li>
+        <li><a href="https://t.me/yourusername" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a></li>
+    </ul>
+
+    <!-- Contact Information -->
+    <div class="footer-content">
+        <p>
+            Contact: 
+            <a class="contact-link" href="tel:+8801615478445">+8801615 478445</a> | 
+            Email: 
+            <a class="contact-link" href="mailto:devheal4@gmail.com">devheal4@gmail.com</a>
+        </p>
+    </div>
+
+    <!-- Footer Logo -->
+    <!-- Copyright Information -->
+    <div class="footer-content">
+        <p>© 2024 DevHeal. All Rights Reserved.</p>
+    </div>
+</body>
+
+</html>
