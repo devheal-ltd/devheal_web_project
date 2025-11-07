@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Communities - আমাদের কমিউনিটি</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: white;
+            color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .communities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .community-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .community-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .community-card:hover::before {
+            left: 100%;
+        }
+
+        .community-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            word-break: break-word;
+        }
+
+        .card-category {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .card-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+
+        .card-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            font-weight: 700;
+        }
+
+        .no-results {
+            text-align: center;
+            color: white;
+            padding: 50px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .communities-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .filter-tabs {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 Bangladesh Communities</h1>
+            <p class="tagline">আপনার সমাজের সাথে যুক্ত হন - সংযুক্ত থাকুন, শিখুন এবং বৃদ্ধি পান</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="কমিউনিটি খুঁজুন...">
+            </div>
+        </header>
+
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterCategory('all')">সব</button>
+            <button class="filter-btn" onclick="filterCategory('national')">জাতীয়</button>
+            <button class="filter-btn" onclick="filterCategory('dhaka')">ঢাকা</button>
+            <button class="filter-btn" onclick="filterCategory('education')">শিক্ষা</button>
+            <button class="filter-btn" onclick="filterCategory('skills')">দক্ষতা</button>
+            <button class="filter-btn" onclick="filterCategory('food')">খাদ্য ব্যাংক</button>
+        </div>
+
+        <div id="content"></div>
+
+        <footer>
+            <p>© 2024 Bangladesh Communities Network | সকল কমিউনিটি স্বাগত জানায়</p>
+        </footer>
+    </div>
+
+    <script>
+        const communities = {
+            national: [
+                { name: 'NGOs & Youth Collaboration Network Bangladesh', url: 'https://web.facebook.com/groups/ngosyouthcollaborationnetworkbangladesh/', icon: '🤝', desc: 'এনজিও এবং যুবক সহযোগিতা নেটওয়ার্ক' },
+                { name: 'Smart Ambassadors Community Bangladesh', url: 'https://web.facebook.com/groups/smartambassadorscommunitybangladesh/', icon: '⭐', desc: 'স্মার্ট অ্যাম্বাসেডর কমিউনিটি' },
+                { name: 'Tech Learners Community Bangladesh', url: 'https://web.facebook.com/groups/techlearnerscommunitybangladesh/', icon: '💻', desc: 'প্রযুক্তি শিক্ষার্থী কমিউনিটি' },
+                { name: 'Professional Learners Community Bangladesh', url: 'https://web.facebook.com/groups/professionallearnerscommunitybangladesh/', icon: '👔', desc: 'পেশাদার শিক্ষার্থী নেটওয়ার্ক' },
+                { name: 'School & Institute Owners Network Bangladesh', url: 'https://web.facebook.com/groups/schoolinstituteownersnetworkbangladesh/', icon: '🏫', desc: 'শিক্ষা প্রতিষ্ঠান মালিক নেটওয়ার্ক' },
+                { name: 'Educational Influencers Community Bangladesh', url: 'https://web.facebook.com/groups/educationalinfluencerscommunitybangladesh/', icon: '📢', desc: 'শিক্ষামূলক প্রভাবশালী সম্প্রদায়' },
+                { name: 'Teacher\'s Community Bangladesh', url: 'https://web.facebook.com/groups/teacherscommunitybangladesh/', icon: '👨‍🏫', desc: 'শিক্ষক সম্প্রদায়' },
+                { name: 'Parents Community Bangladesh', url: 'https://web.facebook.com/groups/parentscommunitybangladesh/', icon: '👨‍👩‍👧', desc: 'অভিভাবক সম্প্রদায়' },
+                { name: 'Students Community Bangladesh', url: 'https://web.facebook.com/groups/studentscommunitybangladesh1/', icon: '🎓', desc: 'শিক্ষার্থী সম্প্রদায়' },
+                { name: 'Learners Community Bangladesh', url: 'https://web.facebook.com/groups/learnerscommunitybangladesh/', icon: '📚', desc: 'শিক্ষার্থী নেটওয়ার্ক' },
+            ],
+            dhaka: [
+                { name: 'Students Community Dhaka Gulshan', url: 'https://web.facebook.com/groups/studentscommunitydhakagulshan/', icon: '🎓', desc: 'গুলশান - শিক্ষার্থী সম্প্রদায়' },
+                { name: 'Smart Kids Parents Community Dhaka Gulshan', url: 'https://web.facebook.com/groups/kidsparentscommunitydhakagulshan/', icon: '👨‍👩‍👧', desc: 'গুলশান - স্মার্ট শিশু অভিভাবক সম্প্রদায়' },
+                { name: 'Teacher\'s Community Dhaka Gulshan', url: 'https://web.facebook.com/groups/teacherscommunitydhakagulshan/', icon: '👨‍🏫', desc: 'গুলশান - শিক্ষক সম্প্রদায়' },
+                { name: 'Parents Community Dhaka Gulshan', url: 'https://web.facebook.com/groups/parentscommunitydhakagulshan/', icon: '👨‍👩‍👧', desc: 'গুলশান - অভিভাবক সম্প্রদায়' },
+            ],
+            education: [
+                { name: 'Programming Community', url: 'https://web.facebook.com/groups/programmingcommunitybd/', icon: '👨‍💻', desc: 'প্রোগ্রামিং কমিউনিটি' },
+                { name: 'Digital Marketing Community', url: 'https://web.facebook.com/groups/digitalmarketingcommunityb/', icon: '📱', desc: 'ডিজিটাল মার্কেটিং কমিউনিটি' },
+                { name: 'English Speaking Community', url: 'https://web.facebook.com/groups/englishspeakingcommunity1/', icon: '🗣️', desc: 'ইংরেজি কথা বলার সম্প্রদায়' },
+                { name: 'Qur\'an Learning Community', url: 'https://web.facebook.com/groups/quranlearningcommunity/', icon: '📖', desc: 'কুরআন শেখার সম্প্রদায়' },
+            ],
+            skills: [
+                { name: 'Personal Exercise Training Community', url: 'https://web.facebook.com/groups/personalexercisetrainingcommunity/', icon: '💪', desc: 'ব্যক্তিগত ব্যায়াম প্রশিক্ষণ' },
+                { name: 'Mind Training Community', url: 'https://web.facebook.com/groups/mindtrainingcommunity/', icon: '🧠', desc: 'মানসিক প্রশিক্ষণ সম্প্রদায়' },
+                { name: 'Faridpur Exercise Community', url: 'https://web.facebook.com/groups/faridpurexercisecommunity/', icon: '💪', desc: 'ফরিদপুর - ব্যায়াম সম্প্রদায়' },
+            ],
+            food: [
+                { name: 'Food Bank Gulshan', url: 'https://web.facebook.com/groups/foodbankgulshan/', icon: '🍲', desc: 'গুলশান' },
+                { name: 'Food Bank Faridpur', url: 'https://web.facebook.com/groups/foodbankfaridpur1/', icon: '🍲', desc: 'ফরিদপুর' },
+                { name: 'Food Bank Mymensingh', url: 'https://web.facebook.com/groups/foodbankmymensingh1/', icon: '🍲', desc: 'ময়মনসিংহ' },
+                { name: 'Food Bank Bogura', url: 'https://web.facebook.com/groups/foodbankbogura1/', icon: '🍲', desc: 'বগুড়া' },
+                { name: 'Food Bank Madaripur', url: 'https://web.facebook.com/groups/foodbankmadaripur1/', icon: '🍲', desc: 'মাদারীপুর' },
+                { name: 'Food Bank Baridhara', url: 'https://web.facebook.com/groups/foodbankbaridhara/', icon: '🍲', desc: 'বারিধারা' },
+                { name: 'Food Bank Magura', url: 'https://web.facebook.com/groups/foodbankmagura/', icon: '🍲', desc: 'মাগুরা' },
+                { name: 'Food Bank Gulshan, Banani & Baridhara', url: 'https://web.facebook.com/groups/foodbankgulshanbananibaridhara/', icon: '🍲', desc: 'গুলশান, বনানি ও বারিধারা' },
+                { name: 'Food Bank Manikganj', url: 'https://web.facebook.com/groups/foodbankmanikganj1/', icon: '🍲', desc: 'মানিকগঞ্জ' },
+                { name: 'Food Bank Gaibandha', url: 'https://web.facebook.com/groups/foodbankgaibandha/', icon: '🍲', desc: 'গাইবান্ধা' },
+                { name: 'Food Bank Chittagong', url: 'https://web.facebook.com/groups/foodbankchittagong1/', icon: '🍲', desc: 'চট্টগ্রাম' },
+                { name: 'Food Bank Khagrachari', url: 'https://web.facebook.com/groups/foodbankkhagrachari1/', icon: '🍲', desc: 'খাগ্রাছড়ি' },
+                { name: 'Food Bank Kushtia', url: 'https://web.facebook.com/groups/foodbankkushtia1/', icon: '🍲', desc: 'কুষ্টিয়া' },
+                { name: 'Food Bank Chuadanga', url: 'https://web.facebook.com/groups/foodbankchuadanga/', icon: '🍲', desc: 'চুয়াডাঙ্গা' },
+                { name: 'Food Bank Chandpur', url: 'https://web.facebook.com/groups/foodbankchandpur1/', icon: '🍲', desc: 'চাঁদপুর' },
+                { name: 'Food Bank Panchagarh', url: 'https://web.facebook.com/groups/foodbankpanchagarh/', icon: '🍲', desc: 'পঞ্চগড়' },
+                { name: 'Food Bank Dhaka', url: 'https://web.facebook.com/groups/foodbankdhaka1/', icon: '🍲', desc: 'ঢাকা' },
+                { name: 'Food Bank Netrokona', url: 'https://web.facebook.com/groups/foodbanknetrokona/', icon: '🍲', desc: 'নেত্রকোণা' },
+                { name: 'Food Bank Thakurgaon', url: 'https://web.facebook.com/groups/foodbankthakurgaon/', icon: '🍲', desc: 'ঠাকুরগাঁও' },
+                { name: 'Food Bank Narail', url: 'https://web.facebook.com/groups/foodbanknarail/', icon: '🍲', desc: 'নারায়েল' },
+                { name: 'Food Bank Lalmonirhat', url: 'https://web.facebook.com/groups/foodbanklalmonirhat/', icon: '🍲', desc: 'লালমনিরহাট' },
+                { name: 'Food Bank Noakhali', url: 'https://web.facebook.com/groups/foodbanknoakhali/', icon: '🍲', desc: 'নোয়াখালী' },
+                { name: 'Food Bank Cumilla', url: 'https://web.facebook.com/groups/foodbankcumilla1/', icon: '🍲', desc: 'কুমিল্লা' },
+                { name: 'Food Bank Kurigram', url: 'https://web.facebook.com/groups/foodbankkurigram/', icon: '🍲', desc: 'কুড়িগ্রাম' },
+                { name: 'Food Bank Nilphamari', url: 'https://web.facebook.com/groups/foodbanknilphamari1/', icon: '🍲', desc: 'নীলফামারী' },
+                { name: 'Food Bank Cox\'s Bazar', url: 'https://web.facebook.com/groups/foodbankcoxsbazar/', icon: '🍲', desc: 'কক্স বাজার' },
+                { name: 'Food Bank Golf Club Area, Patenga', url: 'https://web.facebook.com/groups/foodbankgolfclubareapatenga/', icon: '🍲', desc: 'গলফ ক্লাব এলাকা, পটেঙ্গা' },
+                { name: 'Food Bank Gazipur', url: 'https://web.facebook.com/groups/foodbankgazipur1/', icon: '🍲', desc: 'গাজীপুর' },
+                { name: 'Food Bank Khulshi, Agrabad, Pahartali', url: 'https://web.facebook.com/groups/foodbankkhulshiagrabadpahartali/', icon: '🍲', desc: 'খুলশী, আগ্রাবাদ, পাহাড়তলী' },
+                { name: 'Food Bank Bagerhat', url: 'https://web.facebook.com/groups/foodbankbagerhat/', icon: '🍲', desc: 'বাগেরহাট' },
+                { name: 'Food Bank Jhalokathi', url: 'https://web.facebook.com/groups/foodbankjhalokathi/', icon: '🍲', desc: 'ঝালোকাথি' },
+                { name: 'Food Bank Pirojpur', url: 'https://web.facebook.com/groups/foodbankpirojpur/', icon: '🍲', desc: 'পিরোজপুর' },
+                { name: 'Food Bank Sherpur', url: 'https://web.facebook.com/groups/foodbanksherpur/', icon: '🍲', desc: 'শেরপুর' },
+                { name: 'Food Bank Feni', url: 'https://web.facebook.com/groups/foodbankfeni/', icon: '🍲', desc: 'ফেনী' },
+                { name: 'Food Bank Sunamganj', url: 'https://web.facebook.com/groups/foodbanksunamganj/', icon: '🍲', desc: 'সুনামগঞ্জ' },
+                { name: 'Food Bank Sylhet', url: 'https://web.facebook.com/groups/foodbanksylhet1/', icon: '🍲', desc: 'সিলেট' },
+                { name: 'Food Bank Rajshahi', url: 'https://web.facebook.com/groups/foodbankrajshahi1/', icon: '🍲', desc: 'রাজশাহী' },
+                { name: 'Food Bank Naogaon', url: 'https://web.facebook.com/groups/foodbanknaogaon1/', icon: '🍲', desc: 'নওগাঁ' },
+                { name: 'Food Bank Rajbari', url: 'https://web.facebook.com/groups/foodbankrajbari1/', icon: '🍲', desc: 'রাজবাড়ী' },
+                { name: 'Food Bank Chapainawabganj', url: 'https://web.facebook.com/groups/foodbankchapainawabganj/', icon: '🍲', desc: 'চাপাইনবাবগঞ্জ' },
+                { name: 'Food Bank Narsingdi', url: 'https://web.facebook.com/groups/foodbanknarsingdi/', icon: '🍲', desc: 'নারসিংদী' },
+                { name: 'Food Bank Satkhira', url: 'https://web.facebook.com/groups/foodbanksatkhira/', icon: '🍲', desc: 'সাতক্ষীরা' },
+                { name: 'Food Bank Rangamati', url: 'https://web.facebook.com/groups/foodbankrangamati/', icon: '🍲', desc: 'রাঙ্গামাটি' },
+                { name: 'Food Bank Barisal', url: 'https://web.facebook.com/groups/foodbankbarisal1/', icon: '🍲', desc: 'বরিশাল' },
+                { name: 'Food Bank Jhenaidah', url: 'https://web.facebook.com/groups/foodbankjhenaidah/', icon: '🍲', desc: 'ঝিনাইদহ' },
+                { name: 'Food Bank Habiganj', url: 'https://web.facebook.com/groups/foodbankhabiganj1/', icon: '🍲', desc: 'হবিগঞ্জ' },
+                { name: 'Food Bank Shariatpur', url: 'https://web.facebook.com/groups/foodbankshariatpur1/', icon: '🍲', desc: 'শরিয়তপুর' },
+                { name: 'Food Bank Khulna', url: 'https://web.facebook.com/groups/foodbankkhulna1/', icon: '🍲', desc: 'খুলনা' },
+                { name: 'Food Bank Bandarban', url: 'https://web.facebook.com/groups/foodbankbandarban/', icon: '🍲', desc: 'বান্দরবান' },
+                { name: 'Food Bank Pabna', url: 'https://web.facebook.com/groups/foodbankpabna/', icon: '🍲', desc: 'পাবনা' },
+                { name: 'Food Bank Munshiganj', url: 'https://web.facebook.com/groups/foodbankmunshiganj1/', icon: '🍲', desc: 'মুন্সিগঞ্জ' },
+                { name: 'Food Bank Dinajpur', url: 'https://web.facebook.com/groups/foodbankdinajpur1/', icon: '🍲', desc: 'দিনাজপুর' },
+                { name: 'Food Bank Lakshmipur', url: 'https://web.facebook.com/groups/foodbanklakshmipur/', icon: '🍲', desc: 'লক্ষ্মীপুর' },
+                { name: 'Food Bank Bashundhara R/A, Uttara', url: 'https://web.facebook.com/groups/foodbankbashundhararauttara/', icon: '🍲', desc: 'বসুন্ধরা আরএ, উত্তরা' },
+                { name: 'Food Bank Sylhet City (Juri, Ambarkhana, Rambagh), Madhabpur', url: 'https://web.facebook.com/groups/foodbanksylhetcityjuriambarkhanarambagh/', icon: '🍲', desc: 'সিলেট শহর' },
+                { name: 'Food Bank Dhanmondi, Panthapath', url: 'https://web.facebook.com/groups/foodbankdhanmondipanthapath/', icon: '🍲', desc: 'ধানমন্ডি, পান্থপথ' },
+                { name: 'Food Bank Joypurhat', url: 'https://web.facebook.com/groups/foodbankjoypurhat1/', icon: '🍲', desc: 'জয়পুরহাট' },
+                { name: 'Food Bank Meherpur', url: 'https://web.facebook.com/groups/foodbankmeherpur/', icon: '🍲', desc: 'মেহেরপুর' },
+                { name: 'Food Bank Sirajganj', url: 'https://web.facebook.com/groups/foodbanksirajganj1/', icon: '🍲', desc: 'সিরাজগঞ্জ' },
+                { name: 'Food Bank Tangail', url: 'https://web.facebook.com/groups/foodbanktangail/', icon: '🍲', desc: 'টাঙ্গাইল' },
+                { name: 'Food Bank Jessore', url: 'https://web.facebook.com/groups/foodbankjessore1/', icon: '🍲', desc: 'যশোর' },
+                { name: 'Food Bank Barguna', url: 'https://web.facebook.com/groups/foodbankbarguna/', icon: '🍲', desc: 'বরগুনা' },
+                { name: 'Food Bank Kishoreganj', url: 'https://web.facebook.com/groups/foodbankkishoreganj/', icon: '🍲', desc: 'কিশোরগঞ্জ' },
+                { name: 'Food Bank Brahmanbaria', url: 'https://web.facebook.com/groups/foodbankbrahmanbaria1/', icon: '🍲', desc: 'ব্রাহ্মণবাড়িয়া' },
+                { name: 'Food Bank Moulvibazar', url: 'https://web.facebook.com/groups/foodbankmoulvibazar1/', icon: '🍲', desc: 'মৌলভীবাজার' },
+                { name: 'Food Bank Patuakhali', url: 'https://web.facebook.com/groups/foodbankpatuakhali/', icon: '🍲', desc: 'পটুয়াখালী' },
+                { name: 'Food Bank Gopalganj', url: 'https://web.facebook.com/groups/foodbankgopalganj/', icon: '🍲', desc: 'গোপালগঞ্জ' },
+                { name: 'Food Bank Natore', url: 'https://web.facebook.com/groups/foodbanknatore1/', icon: '🍲', desc: 'নাটোর' },
+                { name: 'Food Bank Bhola', url: 'https://web.facebook.com/groups/foodbankbhola/', icon: '🍲', desc: 'ভোলা' },
+                { name: 'Food Bank Narayanganj', url: 'https://web.facebook.com/groups/foodbanknarayanganj/', icon: '🍲', desc: 'নারায়নগঞ্জ' },
+                { name: 'Food Bank Banani', url: 'https://web.facebook.com/groups/foodbankbanani1/', icon: '🍲', desc: 'বনানী' },
+                { name: 'Food Bank Jamalpur', url: 'https://web.facebook.com/groups/foodbankjamalpur/', icon: '🍲', desc: 'জামালপুর' },
+                { name: 'Food Bank Rangpur', url: 'https://web.facebook.com/groups/foodbankrangpur/', icon: '🍲', desc: 'রংপুর' },
+            ]
+        };
+
+        let currentFilter = 'all';
+        let allCommunities = [];
+
+        // Combine all communities
+        Object.values(communities).forEach(cat => {
+            allCommunities = allCommunities.concat(cat);
+        });
+
+        function renderCommunities(filter = 'all') {
+            const content = document.getElementById('content');
+            let html = '';
+
+            if (filter === 'all') {
+                // Show by category
+                const categories = {
+                    'national': { title: '🌍 জাতীয় কমিউনিটি', emoji: '🌍' },
+                    'dhaka': { title: '🏙️ ঢাকা কমিউনিটি', emoji: '🏙️' },
+                    'education': { title: '🎓 শিক্ষা ও দক্ষতা', emoji: '🎓' },
+                    'skills': { title: '💼 পেশাদার দক্ষতা', emoji: '💼' },
+                    'food': { title: '🍲 খাদ্য ব্যাংক নেটওয়ার্ক', emoji: '🍲' }
+                };
+
+                for (const [key, category] of Object.entries(categories)) {
+                    if (communities[key] && communities[key].length > 0) {
+                        html += `<div class="category-section">
+                            <h2 class="category-title">${category.title}</h2>
+                            <div class="communities-grid">`;
+                        
+                        communities[key].forEach(comm => {
+                            html += createCard(comm);
+                        });
+                        
+                        html += `</div></div>`;
+                    }
+                }
+            } else {
+                // Show filtered category
+                if (communities[filter] && communities[filter].length > 0) {
+                    html = `<div class="communities-grid">`;
+                    communities[filter].forEach(comm => {
+                        html += createCard(comm);
+                    });
+                    html += `</div>`;
+                } else {
+                    html = '<div class="no-results">কোন ফলাফল পাওয়া যায়নি। অনুগ্রহ করে অন্য কিছু চেষ্টা করুন।</div>';
+                }
+            }
+
+            content.innerHTML = html;
+        }
+
+        function createCard(comm) {
+            return `
+                <div class="community-card">
+                    <div class="card-icon">${comm.icon}</div>
+                    <div class="card-title">${comm.name}</div>
+                    <div class="card-category">${comm.desc}</div>
+                    <div class="card-description">এই সম্প্রদায়ের সাথে যোগ দিন এবং সংযুক্ত থাকুন</div>
+                    <a href="${comm.url}" target="_blank" class="card-link">ভিজিট করুন →</a>
+                </div>
+            `;
+        }
+
+        function filterCategory(category) {
+            currentFilter = category;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            renderCommunities(category);
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const content = document.getElementById('content');
+            
+            if (searchTerm.length === 0) {
+                renderCommunities('all');
+                return;
+            }
+
+            const filtered = allCommunities.filter(comm => 
+                comm.name.toLowerCase().includes(searchTerm) ||
+                comm.desc.toLowerCase().includes(searchTerm)
+            );
+
+            if (filtered.length > 0) {
+                let html = '<div class="communities-grid">';
+                filtered.forEach(comm => {
+                    html += createCard(comm);
+                });
+                html += '</div>';
+                content.innerHTML = html;
+            } else {
+                content.innerHTML = '<div class="no-results">😔 কোন কমিউনিটি পাওয়া যায়নি। অন্য শব্দ চেষ্টা করুন।</div>';
+            }
+        });
+
+        // Initial render
+        renderCommunities('all');
+    </script>
+</body>
+</html>
