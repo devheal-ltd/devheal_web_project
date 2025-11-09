@@ -265,6 +265,7 @@
             <button class="filter-btn" onclick="filterCategory('education')">শিক্ষা</button>
             <button class="filter-btn" onclick="filterCategory('skills')">দক্ষতা</button>
             <button class="filter-btn" onclick="filterCategory('food')">খাদ্য ব্যাংক</button>
+            <button class="filter-btn" onclick="filterCategory('tuition')">📚 টিউশন সেবা</button>
         </div>
 
         <div id="content"></div>
@@ -379,7 +380,83 @@
                 { name: 'Food Bank Banani', url: 'https://web.facebook.com/groups/foodbankbanani1/', icon: '🍲', desc: 'বনানী' },
                 { name: 'Food Bank Jamalpur', url: 'https://web.facebook.com/groups/foodbankjamalpur/', icon: '🍲', desc: 'জামালপুর' },
                 { name: 'Food Bank Rangpur', url: 'https://web.facebook.com/groups/foodbankrangpur/', icon: '🍲', desc: 'রংপুর' },
-            ]
+            ],
+            
+            tuition: [
+                { name: 'Tuition Service Faridpur', url: 'https://web.facebook.com/groups/tuitionservicefaridpur/', icon: '📚', desc: 'ফরিদপুর' },
+                { name: 'Tuition Service Munshiganj', url: 'https://web.facebook.com/groups/tuitionservicemunshiganj/', icon: '📚', desc: 'মুন্সিগঞ্জ' },
+                { name: 'Tuition Service Gulshan', url: 'https://web.facebook.com/groups/tuitionservicegulshan/', icon: '📚', desc: 'গুলশান' },
+                { name: 'Tuition Service Pabna', url: 'https://web.facebook.com/groups/tuitionservicepabna/', icon: '📚', desc: 'পাবনা' },
+                { name: 'Tuition Service Gopalganj', url: 'https://web.facebook.com/groups/tuitionservicegopalganj/', icon: '📚', desc: 'গোপালগঞ্জ' },
+                { name: 'Tuition Service Gulshan, Banani & Baridhara', url: 'https://web.facebook.com/groups/tuitionservicegulshanbananibaridhara/', icon: '📚', desc: 'গুলশান, বনানি ও বারিধারা' },
+                { name: 'Tuition Service Baridhara', url: 'https://web.facebook.com/groups/tuitionservicebaridhara/', icon: '📚', desc: 'বারিধারা' },
+                { name: 'Tuition Service Naogaon', url: 'https://web.facebook.com/groups/tuitionservicenaogaon/', icon: '📚', desc: 'নওগাঁ' },
+                { name: 'Tuition Service Kushtia', url: 'https://web.facebook.com/groups/tuitionservicekushtia/', icon: '📚', desc: 'কুষ্টিয়া' },
+                { name: 'Tuition Service Rangpur', url: 'https://web.facebook.com/groups/tuitionservicerangpur/', icon: '📚', desc: 'রংপুর' },
+                { name: 'Tuition Service Gazipur', url: 'https://web.facebook.com/groups/tuitionservicegazipur/', icon: '📚', desc: 'গাজীপুর' },
+                { name: 'Tuition Service Patuakhali', url: 'https://web.facebook.com/groups/tuitionservicepatuakhali/', icon: '📚', desc: 'পটুয়াখালী' },
+                { name: 'Tuition Service Dhaka', url: 'https://web.facebook.com/groups/tuitionservicedhaka/', icon: '📚', desc: 'ঢাকা' },
+                { name: 'Tuition Service Sunamganj', url: 'https://web.facebook.com/groups/tuitionservicesunamganj/', icon: '📚', desc: 'সুনামগঞ্জ' },
+                { name: 'Tuition Service Chuadanga', url: 'https://web.facebook.com/groups/tuitionservicechuadanga/', icon: '📚', desc: 'চুয়াডাঙ্গা' },
+                { name: 'Tuition Service Barguna', url: 'https://web.facebook.com/groups/tuitionservicebarguna/', icon: '📚', desc: 'বরগুনা' },
+                { name: 'Tuition Service Dhanmondi, Panthapath', url: 'https://web.facebook.com/groups/tuitionservicedhanmondipanthapath/', icon: '📚', desc: 'ধানমন্ডি, পান্থপথ' },
+                { name: 'Tuition Service Kishoreganj', url: 'https://web.facebook.com/groups/tuitionservicekishoreganj/', icon: '📚', desc: 'কিশোরগঞ্জ' },
+                { name: 'Tuition Service Sylhet City (Juri, Ambarkhana, Rambagh), Madhabpur', url: 'https://web.facebook.com/groups/tuitionservicesylhetcityjuriambarkhanara/', icon: '📚', desc: 'সিলেট শহর' },
+                { name: 'Tuition Service Kurigram', url: 'https://web.facebook.com/groups/tuitionservicekurigram/', icon: '📚', desc: 'কুড়িগ্রাম' },
+                { name: 'Tuition Service Brahmanbaria', url: 'https://web.facebook.com/groups/tuitionservicebrahmanbaria/', icon: '📚', desc: 'ব্রাহ্মণবাড়িয়া' },
+                { name: 'Tuition Service Shariatpur', url: 'https://web.facebook.com/groups/tuitionserviceshariatpur/', icon: '📚', desc: 'শরিয়তপুর' },
+                { name: 'Tuition Service Bashundhara R/A, Uttara', url: 'https://web.facebook.com/groups/tuitionservicebashundhararauttara/', icon: '📚', desc: 'বসুন্ধরা আরএ, উত্তরা' },
+                { name: 'Tuition Service Netrokona', url: 'https://web.facebook.com/groups/tuitionservicenetrokona/', icon: '📚', desc: 'নেত্রকোণা' },
+                { name: 'Tuition Service Khulshi, Agrabad, Pahartali', url: 'https://web.facebook.com/groups/tuitionservicekhulshiagrabadpahartali/', icon: '📚', desc: 'খুলশী, আগ্রাবাদ, পাহাড়তলী' },
+                { name: 'Tuition Service Pirojpur', url: 'https://web.facebook.com/groups/tuitionservicepirojpur/', icon: '📚', desc: 'পিরোজপুর' },
+                { name: 'Tuition Service Noakhali', url: 'https://web.facebook.com/groups/tuitionservicenoakhali/', icon: '📚', desc: 'নোয়াখালী' },
+                { name: 'Tuition Service Rajshahi', url: 'https://web.facebook.com/groups/tuitionservicerajshahi/', icon: '📚', desc: 'রাজশাহী' },
+                { name: 'Tuition Service Feni', url: 'https://web.facebook.com/groups/tuitionservicefeni/', icon: '📚', desc: 'ফেনী' },
+                { name: 'Tuition Service Narayanganj', url: 'https://web.facebook.com/groups/tuitionservicenarayanganj/', icon: '📚', desc: 'নারায়নগঞ্জ' },
+                { name: 'Tuition Service Chapainawabganj', url: 'https://web.facebook.com/groups/tuitionservicechapainawabganj/', icon: '📚', desc: 'চাপাইনবাবগঞ্জ' },
+                { name: 'Tuition Service Joypurhat', url: 'https://web.facebook.com/groups/tuitionservicejoypurhat/', icon: '📚', desc: 'জয়পুরহাট' },
+                { name: 'Tuition Service Golf Club Area, Patenga', url: 'https://web.facebook.com/groups/tuitionservicegolfclubareapatenga/', icon: '📚', desc: 'গলফ ক্লাব এলাকা, পটেঙ্গা' },
+                { name: 'Tuition Service Tangail', url: 'https://web.facebook.com/groups/tuitionservicetangail/', icon: '📚', desc: 'টাঙ্গাইল' },
+                { name: 'Tuition Service Bogura', url: 'https://web.facebook.com/groups/tuitionservicebogura/', icon: '📚', desc: 'বগুড়া' },
+                { name: 'Tuition Service Nilphamari', url: 'https://web.facebook.com/groups/tuitionservicenilphamari/', icon: '📚', desc: 'নীলফামারী' },
+                { name: 'Tuition Service Gaibandha', url: 'https://web.facebook.com/groups/tuitionservicegaibandha/', icon: '📚', desc: 'গাইবান্ধা' },
+                { name: 'Tuition Service Chandpur', url: 'https://web.facebook.com/groups/tuitionservicechandpur/', icon: '📚', desc: 'চাঁদপুর' },
+                { name: 'Tuition Service Satkhira', url: 'https://web.facebook.com/groups/tuitionservicesatkhira/', icon: '📚', desc: 'সাতক্ষীরা' },
+                { name: 'Tuition Service Banani', url: 'https://web.facebook.com/groups/tuitionservicebanani/', icon: '📚', desc: 'বনানী' },
+                { name: 'Tuition Service Thakurgaon', url: 'https://web.facebook.com/groups/tuitionservicethakurgaon/', icon: '📚', desc: 'ঠাকুরগাঁও' },
+                { name: 'Tuition Service Bhola', url: 'https://web.facebook.com/groups/tuitionservicebhola/', icon: '📚', desc: 'ভোলা' },
+                { name: 'Tuition Service Lalmonirhat', url: 'https://web.facebook.com/groups/tuitionservicelalmonirhat/', icon: '📚', desc: 'লালমনিরহাট' },
+                { name: 'Tuition Service Narsingdi', url: 'https://web.facebook.com/groups/tuitionservicenarsingdi/', icon: '📚', desc: 'নারসিংদী' },
+                { name: 'Tuition Service Bandarban', url: 'https://web.facebook.com/groups/tuitionservicebandarban/', icon: '📚', desc: 'বান্দরবান' },
+                { name: 'Tuition Service Cox\'s Bazar', url: 'https://web.facebook.com/groups/tuitionservicecoxsbazar/', icon: '📚', desc: 'কক্স বাজার' },
+                { name: 'Tuition Service Chittagong', url: 'https://web.facebook.com/groups/tuitionservicechittagong/', icon: '📚', desc: 'চট্টগ্রাম' },
+                { name: 'Tuition Service Sylhet', url: 'https://web.facebook.com/groups/tuitionservicesylhet/', icon: '📚', desc: 'সিলেট' },
+                { name: 'Tuition Service Mymensingh', url: 'https://web.facebook.com/groups/tuitionservicemymensingh/', icon: '📚', desc: 'ময়মনসিংহ' },
+                { name: 'Tuition Service Meherpur', url: 'https://web.facebook.com/groups/tuitionservicemeherpur/', icon: '📚', desc: 'মেহেরপুর' },
+                { name: 'Tuition Service Sherpur', url: 'https://web.facebook.com/groups/tuitionservicesherpur/', icon: '📚', desc: 'শেরপুর' },
+                { name: 'Tuition Service Jhalokathi', url: 'https://web.facebook.com/groups/tuitionservicejhalokathi/', icon: '📚', desc: 'ঝালোকাথি' },
+                { name: 'Tuition Service Habiganj', url: 'https://web.facebook.com/groups/tuitionservicehabiganj/', icon: '📚', desc: 'হবিগঞ্জ' },
+                { name: 'Tuition Service Lakshmipur', url: 'https://web.facebook.com/groups/tuitionservicelakshmipur/', icon: '📚', desc: 'লক্ষ্মীপুর' },
+                { name: 'Tuition Service Rangamati', url: 'https://web.facebook.com/groups/tuitionservicerangamati/', icon: '📚', desc: 'রাঙ্গামাটি' },
+                { name: 'Tuition Service Magura', url: 'https://web.facebook.com/groups/tuitionservicemagura/', icon: '📚', desc: 'মাগুরা' },
+                { name: 'Tuition Service Narail', url: 'https://web.facebook.com/groups/tuitionservicenarail/', icon: '📚', desc: 'নারায়েল' },
+                { name: 'Tuition Service Dinajpur', url: 'https://web.facebook.com/groups/tuitionservicedinajpur/', icon: '📚', desc: 'দিনাজপুর' },
+                { name: 'Tuition Service Cumilla', url: 'https://web.facebook.com/groups/tuitionservicecumilla/', icon: '📚', desc: 'কুমিল্লা' },
+                { name: 'Tuition Service Madaripur', url: 'https://web.facebook.com/groups/tuitionservicemadaripur/', icon: '📚', desc: 'মাদারীপুর' },
+                { name: 'Tuition Service Bagerhat', url: 'https://web.facebook.com/groups/tuitionservicebagerhat/', icon: '📚', desc: 'বাগেরহাট' },
+                { name: 'Tuition Service Panchagarh', url: 'https://web.facebook.com/groups/tuitionservicepanchagarh/', icon: '📚', desc: 'পঞ্চগড়' },
+                { name: 'Tuition Service Moulvibazar', url: 'https://web.facebook.com/groups/tuitionservicemoulvibazar/', icon: '📚', desc: 'মৌলভীবাজার' },
+                { name: 'Tuition Service Natore', url: 'https://web.facebook.com/groups/tuitionservicenatore/', icon: '📚', desc: 'নাটোর' },
+                { name: 'Tuition Service Manikganj', url: 'https://web.facebook.com/groups/tuitionservicemanikganj/', icon: '📚', desc: 'মানিকগঞ্জ' },
+                { name: 'Tuition Service Rajbari', url: 'https://web.facebook.com/groups/tuitionservicerajbari/', icon: '📚', desc: 'রাজবাড়ী' },
+                { name: 'Tuition Service Jessore', url: 'https://web.facebook.com/groups/tuitionservicejessore/', icon: '📚', desc: 'যশোর' },
+                { name: 'Tuition Service Jamalpur', url: 'https://web.facebook.com/groups/tuitionservicejamalpur/', icon: '📚', desc: 'জামালপুর' },
+                { name: 'Tuition Service Khulna', url: 'https://web.facebook.com/groups/tuitionservicekhulna1/', icon: '📚', desc: 'খুলনা' },
+                { name: 'Tuition Service Sirajganj', url: 'https://web.facebook.com/groups/tuitionservicesirajganj/', icon: '📚', desc: 'সিরাজগঞ্জ' },
+                { name: 'Tuition Service Khagrachari', url: 'https://web.facebook.com/groups/tuitionservicekhagrachari/', icon: '📚', desc: 'খাগ্রাছড়ি' },
+                { name: 'Tuition Service Jhenaidah', url: 'https://web.facebook.com/groups/tuitionservicejhenaidah/', icon: '📚', desc: 'ঝিনাইদহ' },
+                { name: 'Tuition Service Barisal', url: 'https://web.facebook.com/groups/tuitionservicebarisal/', icon: '📚', desc: 'বরিশাল' },
+            ],
         };
 
         let currentFilter = 'all';
@@ -401,7 +478,8 @@
                     'dhaka': { title: '🏙️ ঢাকা কমিউনিটি', emoji: '🏙️' },
                     'education': { title: '🎓 শিক্ষা ও দক্ষতা', emoji: '🎓' },
                     'skills': { title: '💼 পেশাদার দক্ষতা', emoji: '💼' },
-                    'food': { title: '🍲 খাদ্য ব্যাংক নেটওয়ার্ক', emoji: '🍲' }
+                    'food': { title: '🍲 খাদ্য ব্যাংক নেটওয়ার্ক', emoji: '🍲' },
+                    'tuition': { title: '📚 টিউশন সার্ভিস কমিউনিটি', emoji: '📚' }
                 };
 
                 for (const [key, category] of Object.entries(categories)) {
